@@ -1,0 +1,833 @@
+@charset "utf-8";
+/* CSS Document */
+*{
+	font-family: 'Questrial', sans-serif;
+	margin:0;
+	padding:0;
+}
+html{
+	@extend %width-extend;
+	height:100%;
+	scroll-behavior:smooth;
+	background-color:#ECECEC;
+}
+body{
+	@extend %width-extend;
+	height:100%;
+	scroll-behavior:smooth;
+}
+
+
+
+
+//////////////////////
+//////////////////////
+//////////////////////
+
+/*  Assignment: Task1: In-class activity. 
+	Create a complex CSS and SASS document. 
+	CD-Task1: In-class activity. 
+	Create a complex CSS and SASS document. */
+	
+	/* Some of the code below seen in my CSS file is only showing for the use of my assessment
+	   and is not in the correct order or position, Please ignore */
+	
+	  // A few things to add, I could of made my css page smaller but I wanted to make the
+	  // assessment easy for you to mark so I have made huge comments and spaces in between each gap 
+	  // so you can understand it better. 
+ 
+ 
+ 
+ 
+// Nesting has been implemented to all of my code
+
+
+
+// Comments have been made for each section of my page and for this assessment
+
+
+
+// Mixins
+
+@mixin mixinhr {
+	margin:auto;
+	margin-bottom:75px;
+	background-color:black;
+}
+
+// Mixins with arguments
+
+
+@mixin mixinargument($mixinhr) {
+	@if $mixinhr {
+		@include mixinhr
+		}
+	  @else{
+		display: none;
+	}
+}
+
+
+// Partials
+
+	// I have made a sticky-nav partial
+
+	
+// Variables 
+
+
+	// I have used #fff multiple times in my code will replace it with $black
+	$black: #fff;
+
+	
+// @include
+
+	// I have included my @mixinhr for all of my hr's
+
+
+// @extend
+
+	// I found all my sections were width:100%; so I extended to every one
+	// I found all my sections were min-height:100%; so I extended to every one
+	
+	%width-extend{
+		width:100%;
+		} 
+	
+	%min-height-placeholder{
+		min-height:100%;
+		}
+	
+// @import
+
+	//@import 'partials/_sticky-nav'; is in my navbar section of my code
+
+	
+// Placeholders
+
+	// each section of my page is atleast a min-height of 100% so I will create a placeholder for each one
+	
+		
+		
+// @each
+	
+	// I purposely made an @each loop for my h1 and h2 to be a different font to everything else as I couldn't find something for this.
+	//  But now my website looks ugly because of the weird fonts lol :P
+	
+		$heading: (
+			h1: Courier New,
+			h2: serif
+		);
+
+		@each $element, $font in $heading {
+			#{$element} {
+				font-family: $font;
+			}
+		}
+	
+// @if
+	
+	// Again I can't find something for an @if for my website, so I will just create one to show that I understand how to create one
+	// If you edit the $test from a 5 to a 3 all of my p tags on my website will change to color:cyan;
+	
+		$test: 5;
+		
+		p {
+			@if $test < 4 {
+			color: cyan;
+			}
+	}
+	
+// Function
+
+	// Once again I couldn't find something for a function for my website, so I will just create one to show that I understand how to create one
+	// Uncomment the css for .home-page h1 and you will see my font-size for my h1 increase to 130px
+	
+	@function my-calculation($font-size-one, $font-size-two){
+		@return $font-size-one + $font-size-two
+		}
+	
+	
+	/*.home-page h1 {
+		font-size: my-calculation(100px, 30px);
+		} */  
+		
+		
+
+
+///////////////////////
+///////////////////////
+///////////////////////
+
+
+
+
+
+
+
+
+
+
+
+/* navbar */
+
+
+@import 'partials/_sticky-nav';
+
+
+
+
+
+/* Home Page */
+.home-page {
+	@extend %width-extend;
+	@extend %min-height-placeholder;
+	color: $black;
+	background: linear-gradient(-45deg, #8336BD, black, #8336BD, black);
+	background-size: 400% 400%;
+	
+		&-content{
+			font-weight: 300;
+			text-align: center;
+			position: absolute;
+			top: 45%;
+			right: 0;
+			left: 0;
+		}
+	}
+.home-page-button{
+	font-weight: 200;
+	text-align: center;
+	margin-top:10px;
+	-webkit-animation: text-focus-in 0.6s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+	        animation: text-focus-in 0.6s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+		p{
+			border:4px solid white;
+			width:100px;
+			margin:auto;
+			border-radius: 10px;
+			padding:2px;
+		}
+	}
+	@-webkit-keyframes text-focus-in {
+  0% {
+    -webkit-filter: blur(12px);
+            filter: blur(12px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-filter: blur(0px);
+            filter: blur(0px);
+    opacity: 1;
+  }
+}
+@keyframes text-focus-in {
+  0% {
+    -webkit-filter: blur(12px);
+            filter: blur(12px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-filter: blur(0px);
+            filter: blur(0px);
+    opacity: 1;
+  }
+}
+
+/* Login Page */
+
+
+.login-page {
+	@extend %width-extend;
+	@extend %min-height-placeholder;
+	color: $black;
+	background: linear-gradient(-45deg, #8336BD, black, #8336BD, black);
+	background-size: 400% 400%;
+
+	&-content{
+		font-weight: 300;
+		text-align: center;
+		position: absolute;
+		top: 25%;
+		right: 0;
+		left: 0;
+	}
+}
+.login-page-button{
+	font-weight: 200;
+	text-align: center;
+	margin-top:10px;
+
+	&-button p{
+		border:1px solid white;
+		width:100px;
+		margin:auto;
+	}
+}
+.login-container{
+	width:460px;
+	margin:auto;
+}
+
+.go-back{
+	float:left;
+	
+	& img{
+	width:80px;
+}
+}
+/* End of Login Page */
+
+
+
+/* about page */
+.about-page{
+	@extend %width-extend;
+	@extend %min-height-placeholder;
+	background-color:white;
+	scroll-behavior:smooth;
+	float:left;
+		&-content{
+			width:1200px;
+			background-color:white;
+			margin:auto;
+			min-height:100%;
+		}
+	}
+hr{
+	@include mixinhr;
+	@include mixinargument(true); 
+}
+.page-header{
+	text-align:center;
+	text-transform:uppercase;
+	margin-top:50px;
+	margin-bottom:150px;
+	font-size:2.3em;
+	
+	& hr{
+	min-height:5px;
+	width:75px;
+	
+} 
+	h3{
+	font-size:2em;
+}
+}
+.about-page-information{
+	margin:auto;
+	@extend %width-extend;
+	background-color:white;
+	float:left;
+	
+	&-box{
+	width:20%;
+	display:inline-block;
+	margin-left:4.8%;
+	float:left;
+	
+}
+    &-box img{
+	width:100%;
+	height:250px;
+	border-radius:50%;
+	box-shadow: 0 0 15px rgba(33,33,33,.2);
+}
+	&-box-wrapper{
+	margin:auto;
+	width:100%;
+	float:left;
+	margin-bottom:100px;
+}
+	&-box img, .about-page-information-box h3, .about-page-information-box p{
+	text-align:center;
+	margin:auto;
+	margin-top:10px;
+	color:#5F5D5D;
+}
+	&-box h3{
+	color:#565656;
+	
+}
+}
+
+.about-me{
+	&-left{
+	width:45%;
+	background-color:white;
+	float:left;
+}
+
+	&-right{
+	width:55%;
+	background-color:white;
+	float:left;
+}
+	&-wrapper{
+	width:100%;
+	background-color:white;
+	float:left;
+}
+	&-center{
+	width:50%;
+	margin-left:30%;
+}
+}
+.about-page-me{
+	min-height:90%;
+	background-color:white;
+	width:400px;
+	float:left;
+	text-align:center;
+	
+	img{
+	width:255px;
+	margin:auto;
+	margin-bottom:15px;
+	border-radius:50%;
+	height:275px;
+	object-fit: cover;
+	box-shadow: 0 0 15px rgba(33,33,33,.2);
+}
+h3{
+	margin-bottom:5px;
+	font-size:2.5em;
+}
+p{
+	width:90%;
+}
+}
+.about-page-skills{
+	width:50%;
+	background-color:white;
+	float:left;
+}
+.bar-wrapper{
+	width:90%;
+	background-color:white;
+	float:right;
+}
+.bar{
+	min-height:35px;
+	background-color:rgba(212,212,212,0.92);
+	margin-bottom:20px;
+	box-shadow: 0 0 15px rgba(33,33,33,.2);
+	
+	p{
+	text-align:right;
+	margin-right:5px;
+}
+	&-name{
+	width:15%;
+	background-color:#8A3CE1;
+	min-height:35px;
+	float:left;
+	text-align:center;
+	box-shadow: 0 0 15px rgba(33,33,33,.2);
+	
+	h4{
+	margin-top:9px;
+	color:white;
+	text-shadow:-1px -1px 0 #000,1px -1px 0 #000,-1px 1px 0 #000,1px 1px 0 #000;
+}
+}
+	&-skill{box-shadow: 0 0 15px rgba(33,33,33,.2);
+	min-height:35px;
+	float:left;
+	color: $black;
+	background: linear-gradient(-45deg, #8336BD, black, #8336BD, black);
+	background-size: 200% 100%;
+	-webkit-animation: Gradient 7s ease infinite;
+	-moz-animation: Gradient 7s ease infinite;
+	animation: Gradient 7s ease infinite;
+}
+}
+
+
+@-webkit-keyframes Gradient {
+	0% {
+		background-position: 0% 50%
+	}
+	50% {
+		background-position: 100% 50%
+	}
+	100% {
+		background-position: 0% 50%
+	}
+}
+
+@-moz-keyframes Gradient {
+	0% {
+		background-position: 0% 50%
+	}
+	50% {
+		background-position: 100% 50%
+	}
+	100% {
+		background-position: 0% 50%
+	}
+}
+
+@keyframes Gradient {
+	0% {
+		background-position: 0% 50%
+	}
+	50% {
+		background-position: 100% 50%
+	}
+	100% {
+		background-position: 0% 50%
+	}
+}
+
+
+
+
+
+
+
+
+/* blog-page */
+
+em{
+float:left;
+}
+
+.blog-page{
+	@extend %min-height-placeholder;
+	@extend %width-extend;
+	background-color:white;
+	float:left;
+
+	&-wrapper{
+		width:100%;
+		height:50%;
+	}
+
+	&-box-wrapper{
+		width:85%;
+		margin:auto;
+		height:460px;
+	}	
+
+	&-box-center{
+		width:100%;
+		margin:auto;
+		height:200px;
+	}
+	&-box{
+		width:24.3%;
+		display:inline-block;
+
+		& img{
+			width:100%;
+		}
+	}
+	&-box hr{
+		margin-bottom:10px;
+	}
+}
+/* End of blog-page */
+
+
+
+/*Project page */
+
+.project-page{
+	@extend %width-extend;
+	@extend %min-height-placeholder;
+	background-color:#ECECEC;
+	float:left;
+	margin-bottom:100px;
+}
+.project-page-wrapper{
+	width:1200px;
+	margin:auto;
+}
+.project-page-nav{
+	width:100%;
+	margin-bottom:25px;
+}
+.project-page-nav ul{
+	width:100%;
+	list-style-type:none;
+	text-align:center;
+	margin:auto;
+}
+.project-page-nav li{
+	width:20%;
+	display:inline;
+	margin-right:50px;
+	margin-left:50px;
+	font-size:2em;
+}
+.project-page-nav a{
+	color:black;
+	text-decoration:none;
+}
+.project-page-content{
+	width:100%;
+	display:inline-block;
+}
+.project-page-box img{
+	min-height:400px;
+	width:100%;
+	display: block;
+	object-fit:cover;
+}
+.project-page-box{
+	width:33%;
+	display:inline-block;
+ 	position: relative;
+	clear:both;
+}
+
+.project-box-text-box {
+  position: absolute;
+  top:100%;
+  left: 0;
+  right: 0;
+  background-color: #ECECEC;
+  overflow: hidden;
+  width: 100%;
+  height:0;
+  transition: .5s ease;
+}
+.project-box-text-box-bottom {
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  right: 0;
+  background-color: #ECECEC;
+  overflow: hidden;
+  width: 100%;
+  height:0;
+  transition: .5s ease;
+}
+
+
+.project-page-box:hover .project-box-text-box  {
+	top:0%;
+	bottom: 100%;
+	min-height: 100%;
+}
+.project-page-box:hover .project-box-text-box-bottom{
+	height:100%;
+	bottom:0;
+}
+.project-box-text-center {
+  color: #5C5C5C;
+  font-size: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+/* Contact page */
+
+.contact-page{
+	@extend %min-height-placeholder;
+	@extend %width-extend;
+	background-color:#ECECEC;
+	float:left;
+}
+.contact-form-holder{
+	width:1136px;
+	border-radius:10px;
+	margin:auto;
+	position:relative;
+	top:5%;
+}
+input[type=text], select, textarea, input[type=password] {
+	margin:auto;
+	width:390px;
+    padding: 12px;
+    border: 1px solid #ccc;
+	border-radius:25px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: vertical;
+	float:left;
+}
+
+.login-container-bottom{
+	float:left;
+}
+.username-password{
+	float:left;
+}
+input[type=text], input[type=password]{
+	min-height:50px;
+	border-radius:25px;
+}
+.contact-form-left{
+	width:49%;
+	min-height:100%;
+	float:left;
+}
+.contact-form-left img{
+	width:80%;
+		height:90%;
+}
+.contact-form-right{
+	width:49%;
+	min-height:100%;
+	float:left;
+}
+.form-container{
+	margin:auto;
+	width:390px;
+}
+input[type=submit] {
+    background-color: #8336BD;
+    color: white;
+    width:125px;
+	min-height:55px;
+    border: none;
+	border-radius:25px;
+    cursor: pointer;
+	margin:auto;
+}
+
+button[type=submit] {
+    background-color: #8336BD;
+    color: white;
+    width:125px;
+	min-height:55px;
+    border: none;
+	border-radius:25px;
+    cursor: pointer;
+	margin:auto;
+	float:left;
+}
+input[type=submit]:hover {
+    background-color: #3D0078;
+	transition-duration:1.5s;
+}
+.button-container{
+	width:390px;
+}
+.button-center{
+	width:90px;
+	margin:auto;
+}
+.contact-form-left img{
+	width:100%;
+}
+footer{
+	height:40%;
+	@extend %width-extend;
+	background-color:black;
+	d: path('M 0 0 L 50 100 L 100 0 Z');
+    fill: white;
+    stroke: white;
+	float:left;
+}
+.top{
+	width:2%;
+	height:50px;
+	position:relative;
+	left:49%;
+	right:0;
+	
+	img{
+		width:100%;}
+	a{
+	scroll-behavior:smooth;
+}
+img:hover{
+	animation: shake 0.1s;
+}
+}
+
+
+@keyframes shake {
+    0% { transform: translate(5px, 0px) rotate(0deg); }
+    33% { transform: translate(-5px, 0px) rotate(0deg); }
+    66% { transform: translate(5px, 0px) rotate(0deg); }
+    99% { transform: translate(-5px, 0px) rotate(0deg); }
+}
+.footer-social-icons {
+    width: 100%;
+    display:block;
+}
+.social-icon {
+    color: $black;
+	margin:auto;
+}
+.social-center{
+	margin:auto;
+	width:230px;
+}
+ul.social-icons {
+    margin-top: 10px;
+}
+.social-icons li {
+    vertical-align: top;
+    display: inline;
+    height: 100px;
+}
+.social-icons a {
+    color:$black;
+    text-decoration: none;
+}
+.fa-facebook {
+    padding:30px 32px;
+    -o-transition:.5s;
+    -ms-transition:.5s;
+    -moz-transition:.5s;
+    -webkit-transition:.5s;
+    transition: .5s;
+    background-color: #322f30;
+	margin-bottom:10px;
+}
+.fa-facebook:hover {
+    background-color: #3d5b99;
+}
+.fa-twitter {
+    padding:30px 30px;
+    -o-transition:.5s;
+    -ms-transition:.5s;
+    -moz-transition:.5s;
+    -webkit-transition:.5s;
+    transition: .5s;
+    background-color: #322f30;
+	margin-bottom:10px;
+}
+.fa-twitter:hover {
+    background-color: #00aced;
+}
+.fa-youtube {
+    padding:30px 30px;
+    -o-transition:.5s;
+    -ms-transition:.5s;
+    -moz-transition:.5s;
+    -webkit-transition:.5s;
+    transition: .5s;
+    background-color: #322f30;
+	margin-bottom:10px;
+}
+.fa-youtube:hover {
+    background-color: #e64a41;
+}
+.footnote{
+	color:white;
+	width:100%;
+}
+.footnote-center{
+	width:240px;
+	margin:auto;
+	text-align:center;
+}
+.footnote h4{
+	margin-top:25px;
+}
+.footnote span{
+	color:rgba(131,54,189,1.00);
+	margin-left:10px;
+}
